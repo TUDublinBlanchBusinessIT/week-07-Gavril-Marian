@@ -9,6 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use Illuminate\Support\Facades\Auth;
 
 class memberController extends AppBaseController
 {
@@ -62,6 +63,20 @@ class memberController extends AppBaseController
 
         return redirect(route('members.index'));
     }
+    public function getLoggedInMemberDetails()
+{
+    if (!Auth::guest()){
+        $user = Auth::user();
+
+        echo "Userid is " . $user->id . "<br>";
+        echo "Member id is " . $user->member->id . "<br>";
+        echo "The member's name is " . $user->member->firstname . " " . $user->member->surname . "<br>";
+        echo "The member is a " . $user->member->membertype . "<br>";
+    }
+    else {
+        echo "not logged in ";
+    }
+}
 
     /**
      * Display the specified member.

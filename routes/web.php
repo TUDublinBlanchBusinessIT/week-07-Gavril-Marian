@@ -32,3 +32,5 @@ Route::resource('courts', App\Http\Controllers\CourtController::class);
 
 Route::resource('bookings', App\Http\Controllers\BookingController::class);
 
+Route::get('/loggedInMember', 'App\Http\Controllers\memberController@getLoggedInMemberDetails');
+
