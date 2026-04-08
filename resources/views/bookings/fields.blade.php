@@ -16,7 +16,7 @@
     {!! Form::text('endtime', null, ['class' => 'form-control']) !!}
 </div>
 
-<input type="hidden" name="memberid" value="{{ Auth::user()->member->id }}">
+<input type="hidden" name="memberid" value="{{ Auth::user()->member->id ?? '' }}">
 
 <!-- Courtid Field -->
 <div class="form-group col-sm-6">
